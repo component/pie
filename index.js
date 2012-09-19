@@ -22,6 +22,7 @@ function Pie() {
   this.background = style('.pie', 'background-color');
   this.border = parseInt(style('.pie', 'border-width'), 10);
   this.color = style('.pie', 'color');
+  this.size(16);
 }
 
 /**
@@ -38,6 +39,19 @@ Pie.prototype.update = function(n){
 };
 
 /**
+ * Set size to `n`.
+ *
+ * @param {Number} n
+ * @return {Pie}
+ * @api public
+ */
+
+Pie.prototype.size = function(n){
+  this._size = n;
+  return this;
+};
+
+/**
  * Draw on to `ctx`.
  *
  * @param {CanvasContext2d} ctx
@@ -46,6 +60,6 @@ Pie.prototype.update = function(n){
  */
 
 Pie.prototype.draw = function(ctx){
-  
+  ctx.clearRect()
   return this;
 };
