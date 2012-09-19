@@ -3,9 +3,11 @@
   "repo": "component/pie",
   "description": "Pie charts for component/favicon",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["pie", "chart", "favicon", "progress"],
   "dependencies": {},
-  "development": {},
+  "development": {
+    "component/favicon": "*"
+  },
   "scripts": [
     "index.js"
   ],
