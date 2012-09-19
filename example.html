@@ -30,7 +30,7 @@
       setInterval(function(){
         pie.update(n++);
         pie.draw(ctx);
-      }, 20);
+      }, Math.random() * 100 | 0);
     }
 
     pie(16);
