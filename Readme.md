@@ -5,6 +5,8 @@
   inspired by the original [piecon](https://github.com/lipka/piecon). Styled
   with CSS!
 
+  ![](http://f.cl.ly/items/360n3W0D2I451205041b/Screen%20Shot%202012-09-19%20at%204.35.54%20PM.png)
+
 ## Installation
 
     $ component install component/pie
