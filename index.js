@@ -1,5 +1,11 @@
 
 /**
+ * Module dependencies.
+ */
+
+var style = require('style');
+
+/**
  * Expose `pie()`.
  */
 
@@ -14,5 +20,7 @@ module.exports = pie;
  */
 
 function pie(ctx) {
-  
+  var background = style('.pie', 'background-color');
+  var border = style('.pie', 'border-width');
+  var color = style('.pie', 'color');
 }
