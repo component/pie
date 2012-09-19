@@ -6,21 +6,46 @@
 var style = require('style');
 
 /**
- * Expose `pie()`.
+ * Expose `Pie()`.
  */
 
-module.exports = pie;
+module.exports = Pie;
 
 /**
- * Draw a pie on `ctx` with the given `percent` filled.
+ * Initialize a new `Pie`.
  *
- * @param {CanvasContext2d} ctx
- * @param {Number} percent
  * @api public
  */
 
-function pie(ctx) {
-  var background = style('.pie', 'background-color');
-  var border = parseInt(style('.pie', 'border-width'), 10);
-  var color = style('.pie', 'color');
+function Pie() {
+  if (!(this instanceof Pie)) return new Pie;
+  this.background = style('.pie', 'background-color');
+  this.border = parseInt(style('.pie', 'border-width'), 10);
+  this.color = style('.pie', 'color');
 }
+
+/**
+ * Update percentage to `n`.
+ *
+ * @param {Number} n
+ * @return {Pie}
+ * @api public
+ */
+
+Pie.prototype.update = function(n){
+  this.percent = n;
+  return this;
+};
+
+/**
+ * Draw on to `ctx`.
+ *
+ * @param {CanvasContext2d} ctx
+ * @return {Pie}
+ * @api public
+ */
+
+Pie.prototype.draw = function(ctx){
+  
+  return this;
+};
