@@ -8,15 +8,22 @@
         background: #EBEBEB;
         padding: 150px;
       }
+      canvas {
+        margin: 10px;
+      }
     </style>
   </head>
   <body>
     <script src="build/build.js"></script>
     <script>
+
+    function pie(size) {
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
       var pie = require('pie')();
 
+      pie.size(size);
+      canvas.width = canvas.height = size;
       document.body.appendChild(canvas);
 
       var n = 0;
@@ -24,6 +31,11 @@
         pie.update(n++);
         pie.draw(ctx);
       }, 20);
+    }
+
+    pie(16);
+    pie(32);
+    pie(64);
 
     </script>
   </body>
