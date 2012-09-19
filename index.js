@@ -21,6 +21,6 @@ module.exports = pie;
 
 function pie(ctx) {
   var background = style('.pie', 'background-color');
-  var border = style('.pie', 'border-width');
+  var border = parseInt(style('.pie', 'border-width'), 10);
   var color = style('.pie', 'color');
 }
