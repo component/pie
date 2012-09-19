@@ -60,6 +60,23 @@ Pie.prototype.size = function(n){
  */
 
 Pie.prototype.draw = function(ctx){
-  ctx.clearRect()
+  var size = this._size;
+  var half = size / 2;
+  var n = this.percent / 100;
+
+  // background
+  ctx.clearRect(0, 0, size, size);
+  ctx.beginPath();
+  ctx.moveTo(half, half);
+  ctx.arc(half, half, half, 0, Math.PI * 2, false);
+  ctx.fillStyle = this.background;
+  ctx.fill();
+
+  // pie
+  ctx.beginPath();
+  ctx.moveTo(half, half);
+  ctx.arc(half, half, half, 0, Math.PI * n, false);
+  ctx.fillStyle = this.color;
+  ctx.fill();
   return this;
 };

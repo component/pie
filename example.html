@@ -10,10 +10,15 @@
       var favicon = require('component-favicon');
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
-      var pie = require('pie');
-      pie()
-      .update(33)
-      .draw(ctx);
+      var pie = require('pie')();
+
+      var n = 0;
+      setInterval(function(){
+        pie.update(n++);
+        pie.draw(ctx);
+        favicon(canvas.toDataURL());
+      }, 100);
+
     </script>
   </body>
 </html>
