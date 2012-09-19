@@ -20,7 +20,8 @@ module.exports = Pie;
 function Pie() {
   if (!(this instanceof Pie)) return new Pie;
   this.background = style('.pie', 'background-color');
-  this.border = parseInt(style('.pie', 'border-width'), 10);
+  this.borderWidth = parseInt(style('.pie', 'border-width'), 10);
+  this.borderColor = style('.pie', 'border-color');
   this.color = style('.pie', 'color');
   this.size(16);
 }
@@ -72,11 +73,17 @@ Pie.prototype.draw = function(ctx){
   ctx.fillStyle = this.background;
   ctx.fill();
 
+  // border
+  ctx.strokeStyle = this.borderColor;
+  ctx.lineWidth = this.borderWidth;
+  ctx.stroke();
+
   // pie
   ctx.beginPath();
   ctx.moveTo(half, half);
   ctx.arc(half, half, half, 0, Math.PI * n, false);
   ctx.fillStyle = this.color;
   ctx.fill();
+
   return this;
 };
