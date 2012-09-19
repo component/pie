@@ -65,18 +65,22 @@ Pie.prototype.draw = function(ctx){
   var half = size / 2;
   var n = this.percent / 100;
 
-  // background
+  // clear
   ctx.clearRect(0, 0, size, size);
+
+  // border
   ctx.beginPath();
   ctx.moveTo(half, half);
   ctx.arc(half, half, half, 0, Math.PI * 2, false);
-  ctx.fillStyle = this.background;
+  ctx.fillStyle = this.borderColor;
   ctx.fill();
 
-  // border
-  ctx.strokeStyle = this.borderColor;
-  ctx.lineWidth = this.borderWidth;
-  ctx.stroke();
+  // background
+  ctx.beginPath();
+  ctx.moveTo(half, half);
+  ctx.arc(half, half, half - this.borderWidth, 0, Math.PI * 2, false);
+  ctx.fillStyle = this.background;
+  ctx.fill();
 
   // pie
   ctx.beginPath();
