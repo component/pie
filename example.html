@@ -6,7 +6,11 @@
   <body>
     <script src="build/build.js"></script>
     <script>
-    
+      var favicon = require('component-favicon');
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      var pie = require('pie');
+      pie(ctx);
     </script>
   </body>
 </html>

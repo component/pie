@@ -4,7 +4,9 @@
   "description": "Pie charts for component/favicon",
   "version": "0.0.1",
   "keywords": ["pie", "chart", "favicon", "progress"],
-  "dependencies": {},
+  "dependencies": {
+    "component/style": "*"
+  },
   "development": {
     "component/favicon": "*"
   },
