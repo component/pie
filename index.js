@@ -85,7 +85,7 @@ Pie.prototype.draw = function(ctx){
   // pie
   ctx.beginPath();
   ctx.moveTo(half, half);
-  ctx.arc(half, half, half, 0, Math.PI * n, false);
+  ctx.arc(half, half, half - this.borderWidth, 0, Math.PI * n, false);
   ctx.fillStyle = this.color;
   ctx.fill();
 
