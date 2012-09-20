@@ -11,6 +11,11 @@
       canvas {
         margin: 10px;
       }
+      .big-pie {
+        color: #5d8dc7;
+        background: #78b5ff;
+        border: 1px solid white;
+      }
     </style>
   </head>
   <body>
@@ -21,7 +26,7 @@
     function pie(size, fav) {
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
-      var pie = require('pie')();
+      var pie = require('pie')(64 == size ? '.big-pie' : '.pie');
 
       pie.size(size);
       canvas.width = canvas.height = size;
