@@ -16,8 +16,9 @@
   <body>
     <script src="build/build.js"></script>
     <script>
+    var favicon = require('component-favicon');
 
-    function pie(size) {
+    function pie(size, fav) {
       var canvas = document.createElement('canvas');
       var ctx = canvas.getContext('2d');
       var pie = require('pie')();
@@ -30,10 +31,11 @@
       setInterval(function(){
         pie.update(n++);
         pie.draw(ctx);
+        if (fav) favicon(canvas.toDataURL());
       }, Math.random() * 100 | 0);
     }
 
-    pie(16);
+    pie(16, true);
     pie(32);
     pie(64);
 
