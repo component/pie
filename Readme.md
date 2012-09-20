@@ -1,7 +1,7 @@
 
 # pie
 
-  Pie charts for [component/favicon](https://github.com/component/favicon)
+  Pie charts for [component/piecon](https://github.com/component/piecon)
   inspired by the original [piecon](https://github.com/lipka/piecon). Styled
   with CSS!
 
