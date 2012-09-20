@@ -12,17 +12,21 @@ var style = require('style');
 module.exports = Pie;
 
 /**
- * Initialize a new `Pie`.
+ * Initialize a new `Pie` with
+ * an optional css `selector`,
+ * defaulting to ".pie".
  *
+ * @param {String} selector
  * @api public
  */
 
-function Pie() {
-  if (!(this instanceof Pie)) return new Pie;
-  this.background = style('.pie', 'background-color');
-  this.borderWidth = parseInt(style('.pie', 'border-width'), 10);
-  this.borderColor = style('.pie', 'border-color');
-  this.color = style('.pie', 'color');
+function Pie(selector) {
+  if (!(this instanceof Pie)) return new Pie(selector);
+  selector = selector || '.pie';
+  this.background = style(selector, 'background-color');
+  this.borderWidth = parseInt(style(selector, 'border-width'), 10);
+  this.borderColor = style(selector, 'border-color');
+  this.color = style(selector, 'color');
   this.size(16);
 }
 

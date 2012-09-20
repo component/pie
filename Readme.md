@@ -27,6 +27,11 @@
 
 ## API
 
+### new Pie([selector])
+
+  Initialize a new `Pie` with optional CSS `selector` used
+  for styling, this defaults to ".pie".
+
 ### Pie#update(n)
 
   Update the percentage to `n`.
