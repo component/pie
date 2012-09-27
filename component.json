@@ -2,7 +2,7 @@
   "name": "pie",
   "repo": "component/pie",
   "description": "Pie charts for component/favicon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["pie", "chart", "favicon", "progress"],
   "dependencies": {
     "component/style": "*"
