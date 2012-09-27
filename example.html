@@ -33,10 +33,11 @@
       document.body.appendChild(canvas);
 
       var n = 0;
-      setInterval(function(){
+      var id = setInterval(function(){
         pie.update(n++);
         pie.draw(ctx);
         if (fav) favicon(canvas.toDataURL());
+        if (n >= 100) clearInterval(id);
       }, Math.random() * 100 | 0);
     }
 
