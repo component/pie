@@ -34,7 +34,7 @@
 
       var n = 0;
       var id = setInterval(function(){
-        pie.update(n++);
+        pie.update(++n);
         pie.draw(ctx);
         if (fav) favicon(canvas.toDataURL());
         if (n >= 100) clearInterval(id);
