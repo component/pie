@@ -2,7 +2,12 @@
   "name": "pie-component",
   "description": "Pie charts for component/favicon",
   "version": "0.0.2",
-  "keywords": ["pie", "chart", "favicon", "progress"],
+  "keywords": [
+    "pie",
+    "chart",
+    "favicon",
+    "progress"
+  ],
   "dependencies": {
     "style-component": "*"
   },
@@ -10,6 +15,12 @@
     "scripts": {
       "pie/index.js": "index.js"
     },
-    "styles": ["pie.css"]
+    "styles": [
+      "pie.css"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/pie.git"
   }
 }
