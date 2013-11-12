@@ -115,16 +115,18 @@ Pie.prototype.draw = function(ctx){
 
   // pie
   ctx.beginPath();
-  var lineWidth = half - this.borderWidth - this._innerRadius;
-  ctx.arc(half, half, half - this.borderWidth - ( this._innerRadius > 0 ? ( lineWidth / 2 ) : 0 ), 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
   if ( this._innerRadius > 0 )
   {
+    var lineWidth = half - this.borderWidth - this._innerRadius;
+    ctx.arc(half, half, half - this.borderWidth - ( lineWidth / 2 ), 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = this.color;
     ctx.stroke();
   }
   else
   {
+    ctx.moveTo(half,half);
+    ctx.arc(half, half, half - this.borderWidth, 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
     ctx.fillStyle = this.color;
     ctx.fill();
   }
