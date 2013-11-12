@@ -40,6 +40,14 @@
 
   Set the diameter to `n`.
 
+### Pie#angleOffset(angleOffset)
+
+  Set the start angle offset to `angleOffset`. This allows you to start the pie drawing at a position of your choosing. For instance, to start the pie drawing from 12 o'clock (as opposed to the default, 3 o'clock), you could:
+  
+```javascript
+    pie.angleOffset( -Math.PI / 2 ); // add -90 degress to the default start angle of 3 o'clock 
+```
+
 ### Pie#draw(ctx)
 
   Draw on `ctx`.
