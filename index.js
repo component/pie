@@ -28,6 +28,7 @@ function Pie(selector) {
   this.borderColor = style(selector, 'border-color');
   this.color = style(selector, 'color');
   this.size(16);
+  this.angleOffset(0);
 }
 
 /**
@@ -53,6 +54,18 @@ Pie.prototype.update = function(n){
 
 Pie.prototype.size = function(n){
   this._size = n;
+  return this;
+};
+
+/**
+ * Set the start angle offset to 'angleOffset' in *radians*.
+ *
+ * @param {Number} angleOffset
+ * @return {Pie}
+ * @api public
+ */
+Pie.prototype.angleOffset = function(angleOffset) {
+  this._angleOffset = angleOffset;
   return this;
 };
 
@@ -90,7 +103,7 @@ Pie.prototype.draw = function(ctx){
   // pie
   ctx.beginPath();
   ctx.moveTo(half, half);
-  ctx.arc(half, half, half - this.borderWidth, 0, pi * n, false);
+  ctx.arc(half, half, half - this.borderWidth, 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
   ctx.fillStyle = this.color;
   ctx.fill();
 
