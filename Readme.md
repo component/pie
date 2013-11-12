@@ -56,9 +56,9 @@
     pie.innerRadius( 10 ); // set a 10px inner radius
 ```
 
-Looks like:
+  Example image:
 
-  ![Inner Radius Example](/example_images/inner_radius.jpg "Inner Radius Example")
+    ![Inner Radius Example](example_images/inner_radius.jpg?raw=true "Inner Radius Example")
 
 ### Pie#draw(ctx)
 
