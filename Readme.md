@@ -58,7 +58,7 @@
 
   Example image:
 
-    ![Inner Radius Example](example_images/inner_radius.jpg?raw=true "Inner Radius Example")
+    ![Inner Radius Example](example_images/inner_radius.jpg?raw=true)
 
 ### Pie#draw(ctx)
 
