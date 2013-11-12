@@ -48,6 +48,18 @@
     pie.angleOffset( -Math.PI / 2 ); // add -90 degress to the default start angle of 3 o'clock 
 ```
 
+### Pie#innerRadius(r)
+
+  Set the inner radius to `r`, allowing you to draw 'donut' style pie graphs. Eg:
+  
+```javascript
+    pie.innerRadius( 10 ); // set a 10px inner radius
+```
+
+Looks like:
+
+  ![Inner Radius Example](/example_images/inner_radius.jpg "Inner Radius Example")
+
 ### Pie#draw(ctx)
 
   Draw on `ctx`.

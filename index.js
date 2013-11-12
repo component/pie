@@ -29,6 +29,7 @@ function Pie(selector) {
   this.color = style(selector, 'color');
   this.size(16);
   this.angleOffset(0);
+  this.innerRadius(0);
 }
 
 /**
@@ -70,6 +71,18 @@ Pie.prototype.angleOffset = function(angleOffset) {
 };
 
 /**
+ * Set the inner radius to 'r', drawing a 'donut' shaped pie graph.
+ *
+ * @param {Number} r
+ * @return {Pie}
+ * @api public
+ */
+Pie.prototype.innerRadius = function(r) {
+  this._innerRadius = r;
+  return this;
+};
+
+/**
  * Draw on to `ctx`.
  *
  * @param {CanvasContext2d} ctx
@@ -102,10 +115,19 @@ Pie.prototype.draw = function(ctx){
 
   // pie
   ctx.beginPath();
-  ctx.moveTo(half, half);
-  ctx.arc(half, half, half - this.borderWidth, 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
-  ctx.fillStyle = this.color;
-  ctx.fill();
+  var lineWidth = half - this.borderWidth - this._innerRadius;
+  ctx.arc(half, half, half - this.borderWidth - ( this._innerRadius > 0 ? ( lineWidth / 2 ) : 0 ), 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
+  if ( this._innerRadius > 0 )
+  {
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = this.color;
+    ctx.stroke();
+  }
+  else
+  {
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
 
   return this;
 };
