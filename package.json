@@ -11,6 +11,9 @@
   "dependencies": {
     "style-component": "*"
   },
+  "browser": {
+    "style": "style-component"
+  },
   "component": {
     "scripts": {
       "pie/index.js": "index.js"
