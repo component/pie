@@ -28,6 +28,8 @@ function Pie(selector) {
   this.borderColor = style(selector, 'border-color');
   this.color = style(selector, 'color');
   this.size(16);
+  this.angleOffset(0);
+  this.innerRadius(0);
 }
 
 /**
@@ -53,6 +55,30 @@ Pie.prototype.update = function(n){
 
 Pie.prototype.size = function(n){
   this._size = n;
+  return this;
+};
+
+/**
+ * Set the start angle offset to 'angleOffset' in *radians*.
+ *
+ * @param {Number} angleOffset
+ * @return {Pie}
+ * @api public
+ */
+Pie.prototype.angleOffset = function(angleOffset) {
+  this._angleOffset = angleOffset;
+  return this;
+};
+
+/**
+ * Set the inner radius to 'r', drawing a 'donut' shaped pie graph.
+ *
+ * @param {Number} r
+ * @return {Pie}
+ * @api public
+ */
+Pie.prototype.innerRadius = function(r) {
+  this._innerRadius = r;
   return this;
 };
 
@@ -89,10 +115,21 @@ Pie.prototype.draw = function(ctx){
 
   // pie
   ctx.beginPath();
-  ctx.moveTo(half, half);
-  ctx.arc(half, half, half - this.borderWidth, 0, pi * n, false);
-  ctx.fillStyle = this.color;
-  ctx.fill();
+  if ( this._innerRadius > 0 )
+  {
+    var lineWidth = half - this.borderWidth - this._innerRadius;
+    ctx.arc(half, half, half - this.borderWidth - ( lineWidth / 2 ), 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = this.color;
+    ctx.stroke();
+  }
+  else
+  {
+    ctx.moveTo(half,half);
+    ctx.arc(half, half, half - this.borderWidth, 0 + this._angleOffset, ( pi * n ) + this._angleOffset, false);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
 
   return this;
 };
